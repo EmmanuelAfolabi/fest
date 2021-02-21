@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BROWSER FEST 2021</title>
+
+    <meta name="author" content="netizen.org">
+    <meta name="description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+
+    <!-- social media stuff -->
+    <meta property="og:title" content="BROWSER FEST 2021">
+    <meta property="og:url" content="https://browserfest.netizen.org">
+    <meta property="og:image" content="https://browserfest.netizen.org/images/BrowserFest.png">
+    <meta property="og:description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="browserfest.netizen.org">
+    <meta name="twitter:site" content="@netizenorg">
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  </head>
+  <body>
+
+<div class="header">
+<a href="index.html"><pre>
+.. ..██████╗░██████╗░░█████╗..██╗░░...;.██╗░██████╗███████╗██████╗░███████╗███████╗░██████╗████████╗██████╗░░█████╗░██████╗░░░███╗░,;.
+ . . ██╔══██╗██╔══██╗██╔══██╗░██║░░██╗.░██║██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝╚════██╗██╔══██╗╚════██╗░████║░..,
+ . . ██████╦╝██████╔╝██║░░██║░╚██╗████╗██╔╝╚█████╗░█████╗░░██████╔╝█████╗░░█████╗░░╚█████╗░.░░██║..░░░███╔═╝██║░░██║░░███╔═╝██╔██║..,,,.
+...,.██╔══██╗██╔══██╗██║░░██║░░████╔═████║░░╚═══██╗██╔══╝░░██╔══██╗██╔══╝░░██╔══╝░░░╚═══██╗;░░██║,;░██╔══╝░░██║░░██║██╔══╝░░╚═╝██║░,,.  ,.
+. ,%,██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║██║░░..░███████╗██████╔╝%.░██║.;░███████╗╚█████╔╝███████╗███████╗,♬
+. .;.╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝.═╝░.,,..══════╝╚═════╝.;,.╚═..,.╚══════╝░╚════╝░╚══════╝╚══════╝ .
+</pre></a>
+</div>
+
+<div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <!-- menu remixed from https://codepen.io/brenden/pen/VLjKMQ/ -->
+    <div>
+      <div>
+        <ul>
+          <li><a href="">submit</a></li>
+          <li><a href="">what's browserfest</a></li>
+          <li><a href="">whois netnet</a></li>
+          <li><a href="">schedule</a></li>
+          <li><a href="">demo gallery </a></li>
+          <li><a href="">crew list</a></li>
+          <li><a href="">how to participate</a></li>
+          <li><a href="">categories</a></li>
+          <li><a href="">rules</a></li>
+          <li><a href="">code of conduct</a></li>
+          <li><a href="">workshops</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="grid">
+  <section>
+    <form method="post" name="" class="">
+      <div id="crewactionform">
+        <!-- crew name is always wrapped with span based on display font selected in dashboard-crew -->
+        <h1 style="text-align: center;">
+          <span class="crew-font-horror">Rad Dino Crew</span>
+        </h1>
+        
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <label for="profile">
+        <p class="profilemsg" style="text-align:left">use netnet.studio to hand-craft your crew's profile page. Be creative. Get wild. Paste the netnet url below.</p>
+        <a class='formhelp' href="#">how do i make a profile?</a>
+        <!-- check out documentation on how to parse URLs coming from netnet -->
+        </label>
+        <div class="clear"><input type="submit" value="Update Crew INFO" name="" id="" class="button"></div>
+        <br><br>
+        <a href="{{netnet}}">visit crew profile</a>
+        <br><br>
+        <!-- ideally this is integrated into the discord API and creates a channel in the browserfest discord -->
+        <a href="">launch crew discord</a>
+        <br><br>
+        <a href="dashboard-user">&#11013; back to dashboard</a>
+
+
+      </div>
+    </form>
+  </section>
+  <section>
+      <div id="crewactionform">
+        <h1 style="text-align: center;">Crew Members</h1>
+
+        <ul class="crewconnectlist">
+          <!-- ordered by alpha name; paginated if list gets over 12 -->
+          <li style="display: flex;flex-direction:row;padding:2em 0; border-bottom:1px dotted #ff00cc44">
+            <div style="background-image:url('https://placekitten.com/g/200/300'); background-position:center;flex-grow:1;width:100px; height:100px; margin-right:1em"></div>
+            <div style="width:220px;">
+              <a href="netnet-profile-link" target="_blank">Person Name</a>
+              A bit about me... I like stuff and things... opaspaso op as skladdsakljasljk lkdsajdasklj
+              <br><br>
+              email@email.com
+            </div>
+          </li>
+
+          <li style="display: flex;flex-direction:row;padding:2em 0; border-bottom:1px dotted #ff00cc44">
+            <div style="background-image:url('https://placekitten.com/g/202/300'); background-position:center;flex-grow:1;width:100px; height:100px; margin-right:1em"></div>
+            <div style="width:220px;">
+              <a href="netnet-profile-link" target="_blank">Person Name</a>
+              I make music on computers and stuff.
+              <br><br>
+              email@email.com
+            </div>
+          </li>
+        </ul>
+
+      </div>
+  </section>
+
+  <section>
+    <div id="crewinvites">
+      <h2>Crew Requests</h2>
+      <ul>
+        <li>
+          <p><a href="">UserName</a> wants to join the crew. (requested on time/date)</p>
+          <a href="">accept</a>
+          <a href="">delete</a>
+        </li>
+        <li>
+          <p><a href="">UserName</a> wants to join the crew. (requested on time/date)</p>
+          <a href="">accept</a>
+          <a href="">delete</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </section>
+</div>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <script src="{% static 'js/GradientBG.js' %}"></script>
+  </body>
+</html>

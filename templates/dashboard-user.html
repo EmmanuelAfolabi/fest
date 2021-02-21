@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BROWSER FEST 2021</title>
+
+    <meta name="author" content="netizen.org">
+    <meta name="description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+
+    <!-- social media stuff -->
+    <meta property="og:title" content="BROWSER FEST 2021">
+    <meta property="og:url" content="https://browserfest.netizen.org">
+    <meta property="og:image" content="https://browserfest.netizen.org/images/BrowserFest.png">
+    <meta property="og:description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="browserfest.netizen.org">
+    <meta name="twitter:site" content="@netizenorg">
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+ 
+
+  </head>
+  <body>
+
+<div class="header">
+<pre>
+.. ..██████╗░██████╗░░█████╗..██╗░░...;.██╗░██████╗███████╗██████╗░███████╗███████╗░██████╗████████╗██████╗░░█████╗░██████╗░░░███╗░,;.
+ . . ██╔══██╗██╔══██╗██╔══██╗░██║░░██╗.░██║██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝╚════██╗██╔══██╗╚════██╗░████║░..,
+ . . ██████╦╝██████╔╝██║░░██║░╚██╗████╗██╔╝╚█████╗░█████╗░░██████╔╝█████╗░░█████╗░░╚█████╗░.░░██║..░░░███╔═╝██║░░██║░░███╔═╝██╔██║..,,,.
+...,.██╔══██╗██╔══██╗██║░░██║░░████╔═████║░░╚═══██╗██╔══╝░░██╔══██╗██╔══╝░░██╔══╝░░░╚═══██╗;░░██║,;░██╔══╝░░██║░░██║██╔══╝░░╚═╝██║░,,.  ,.
+. ,%,██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║██║░░..░███████╗██████╔╝%.░██║.;░███████╗╚█████╔╝███████╗███████╗,♬
+. .;.╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝.═╝░.,,..══════╝╚═════╝.;,.╚═..,.╚══════╝░╚════╝░╚══════╝╚══════╝ .
+</pre>
+</div>
+<div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <!-- menu remixed from https://codepen.io/brenden/pen/VLjKMQ/ -->
+    <div>
+      <div>
+        <ul>
+          <li><a href="">submit</a></li>
+          <li><a href="">what's browserfest</a></li>
+          <li><a href="">whois netnet</a></li>
+          <li><a href="">schedule</a></li>
+          <li><a href="">demo gallery </a></li>
+          <li><a href="">crew list</a></li>
+          <li><a href="">how to participate</a></li>
+          <li><a href="">categories</a></li>
+          <li><a href="">rules</a></li>
+          <li><a href="">code of conduct</a></li>
+          <li><a href="">workshops</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+    <section>
+      <form method="post" enctype="multipart/form-data">
+        <div id="profileform">
+          <h1 style="text-align: center;">BrowserFest Dashboard</h1>
+          <p class="profilemsg">Welcome to your BrowserFest Dashboard 🎉</p>
+          {% csrf_token %}
+
+          {{ form.as_p }}
+            <p class="profilemsg" style="text-align:left">use netnet.studio to hand-craft a spicy profile to introduce yourself. Paste the netnet url below.</p>
+            <a class='formhelp' href="#">how do i make a profile?</a>
+
+          <div class="clear"><input type="submit" value="Update Account" name="" id="" class="button"></div>
+          reset password
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <form action="" name="" class="">       
+        <div id="crewactionform">
+      <!-- crew name is always wrapped with span based on display font selected in dashboard-crew -->
+        <h1 style="text-align: center;">
+          <span class="crew-font-horror">Rad Dino Crew</span>
+        </h1>
+        <p>Mess with the best. Die like the rest.</p>
+          <div style="display:flex;justify-content:center;padding:.25em .25em 1em .25em">
+            <a href="{% url 'dashboard-crew' %}" style="padding:.5em 1em; margin:.25em; border:1px dotted #ff00cc">Crew Page</a>
+            <a href="" style="padding:.5em 1em; margin:.25em;">leave crew</a>
+          </div>
+
+
+          <h2 style="text-align: center;">CrewConnect</h2>
+          <p class="profilemsg">Find folx to collaborate with, join a crew, or create a new one.</p>
+          <div style="display:flex;justify-content:center;padding:.25em .25em 1em .25em">
+            <a href="{% url 'connect-users' %}" style="padding:.5em 1em; margin:.25em; border:1px dotted #ff00cc">people</a>
+            <a href="{% url 'connect-crews' %}" style="padding:.5em 1em; margin:.25em; border:1px dotted #ff00cc">crews</a>
+            <a href="{% url 'dashboard-crew' %}" style="padding:.5em 1em; margin:.25em; border:1px dotted #ff00cc">create</a>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <div id="crewinvites">
+        <h2>Crew Invites</h2>
+        <ul>
+          <li>
+            <p>CrewName invites you to join their crew. (invited by username on time/date)</p>
+            <a href="">accept</a> 
+            <a href="">delete</a>
+          </li>
+          <li>
+            <p>CrewName invites you to join their crew. (invited by username on time/date)</p>
+            <a href="">accept</a> 
+            <a href="">delete</a>
+          </li>
+        </ul>
+        
+      </div>
+
+    </section>
+</div>
+    <br>
+    <br>
+    <br>
+
+<p style="text-align: center">delete account</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <script src="{% static 'js/GradientBG.js' %}"></script>
+
+  </body>
+</html>

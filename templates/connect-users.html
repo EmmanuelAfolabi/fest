@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BROWSER FEST 2021</title>
+
+    <meta name="author" content="netizen.org">
+    <meta name="description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+
+    <!-- social media stuff -->
+    <meta property="og:title" content="BROWSER FEST 2021">
+    <meta property="og:url" content="https://browserfest.netizen.org">
+    <meta property="og:image" content="https://browserfest.netizen.org/images/BrowserFest.png">
+    <meta property="og:description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="browserfest.netizen.org">
+    <meta name="twitter:site" content="@netizenorg">
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  </head>
+  <body>
+
+<div class="header">
+<pre>
+.. ..██████╗░██████╗░░█████╗..██╗░░...;.██╗░██████╗███████╗██████╗░███████╗███████╗░██████╗████████╗██████╗░░█████╗░██████╗░░░███╗░,;.
+ . . ██╔══██╗██╔══██╗██╔══██╗░██║░░██╗.░██║██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝╚════██╗██╔══██╗╚════██╗░████║░..,
+ . . ██████╦╝██████╔╝██║░░██║░╚██╗████╗██╔╝╚█████╗░█████╗░░██████╔╝█████╗░░█████╗░░╚█████╗░.░░██║..░░░███╔═╝██║░░██║░░███╔═╝██╔██║..,,,.
+...,.██╔══██╗██╔══██╗██║░░██║░░████╔═████║░░╚═══██╗██╔══╝░░██╔══██╗██╔══╝░░██╔══╝░░░╚═══██╗;░░██║,;░██╔══╝░░██║░░██║██╔══╝░░╚═╝██║░,,.  ,.
+. ,%,██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║██║░░..░███████╗██████╔╝%.░██║.;░███████╗╚█████╔╝███████╗███████╗,♬
+. .;.╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝.═╝░.,,..══════╝╚═════╝.;,.╚═..,.╚══════╝░╚════╝░╚══════╝╚══════╝ .
+</pre>
+</div>
+<div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <!-- menu remixed from https://codepen.io/brenden/pen/VLjKMQ/ -->
+    <div>
+      <div>
+        <ul>
+          <li><a href="">submit</a></li>
+          <li><a href="">what's browserfest</a></li>
+          <li><a href="">whois netnet</a></li>
+          <li><a href="">schedule</a></li>
+          <li><a href="">demo gallery </a></li>
+          <li><a href="">crew list</a></li>
+          <li><a href="">how to participate</a></li>
+          <li><a href="">categories</a></li>
+          <li><a href="">rules</a></li>
+          <li><a href="">code of conduct</a></li>
+          <li><a href="">workshops</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <section>
+      <form action="" name="" class="">
+        <div id="crewconnectform">
+          <h1 style="text-align: center;">CrewConnect</h1>
+          
+          <div style="display: flex;flex-direction: row;justify-content:center">
+            <a href="dashboard-user" style="padding:.5em 1em; margin:.25em; ">&#11013; dashboard</a>
+            <a href="connect-users" style="padding:.5em 1em; margin:.25em; border:1px solid #ff00cc">people</a>
+            <a href="connect-crews" style="padding:.5em 1em; margin:.25em; border:1px dotted #ff00cc">crews</a>
+          </div>
+          <ul class="crewconnectlist">
+            <!-- ordered by date joined; paginated if list gets over 12 -->
+            {% for user in users %}
+            <li style="display: flex;flex-direction:row;padding:2em 0; border-bottom:1px dotted #ff00cc44">
+              <div style="background-image:url({{user.avatar_img.url}}); background-position:center;flex-grow:1;width:150px; height:150px; margin-right:1em"></div>
+              <div style="width:450px;">
+                <a href="netnet-profile-link" target="_blank">{{user.username}}</a>
+                <p>{{user.about}}</p>
+                <div><a href="">invite to crew</a></div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+
+          </label> 
+        </div>
+      </form>
+    </section>
+
+    <div id="crewconnectform">
+      &#9664; 1 2 3 4 5 &#9654;
+    </div>
+
+
+ 
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </body>
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+</html>

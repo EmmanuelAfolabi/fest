@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BROWSER FEST 2021</title>
+
+    <meta name="author" content="netizen.org">
+    <meta name="description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+
+    <!-- social media stuff -->
+    <meta property="og:title" content="BROWSER FEST 2021">
+    <meta property="og:url" content="https://browserfest.netizen.org">
+    <meta property="og:image" content="https://browserfest.netizen.org/images/BrowserFest.png">
+    <meta property="og:description" content="BrowserFest borrows the playful and dynamic demoparty format to celebrate and experiment with one of the most flexible and inspiring tools ever invented: the humble web browser">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="browserfest.netizen.org">
+    <meta name="twitter:site" content="@netizenorg">
+
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  </head>
+  <body>
+
+    <section>
+      <form action="" method="post" name="" class="validate" novalidate>
+          {% csrf_token %}
+        <div id="authform">
+          <h1 style="text-align: center;">BrowserFest Log-in</h1>
+          <input type="email" value="" name="email" class="" id="" placeholder="email">
+          <input type="password" value="" name="password" class="" id="" placeholder="password">
+          <div class="clear"><input type="submit" value="Log-in" name="" id="" class="button"></div>
+          <a class='formhelp' href="">forgot pass?</a>
+          <p class="center small">
+            <br>
+            <h2 style="text-align: center;">Can Has Account?</h2>
+            <span style="padding:0 1em;display: block">Register below to participate in BrowserFest, find or create a crew, and submit your demos.</span>
+          </p>
+          <div>
+            {% if form.errors %}
+          {% for field in form %}
+                    {% for error in field.errors %}
+                        <p> {{ error }} </p>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+          </div>
+          <label for="username">Name/Handle:</label>
+          {{form.username}}
+
+          <label for="email">Email:</label>
+          {{form.email}}
+
+          <label for="password1">Password:</label>
+          {{form.password1}}
+
+			    <label for="password2">Confirm Password:</label>
+          {{form.password2}}
+
+          <div class="clear"><input type="submit" value="Register" name="" id="" class="button"></div>
+
+        </div>
+      </form>
+    </section>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </body>
+</html>
